@@ -437,8 +437,8 @@ MonoBehaviour:
   defaultMaterial: {fileID: 2100000, guid: 4d5e05bbd2df64549be5ba16f44a116d, type: 2}
   firingFailMaterial: {fileID: 2100000, guid: f79a48fd422b8c3448aa6b678c7be620, type: 2}
   muzzleV: 10
-  canonDelay: 2
-  maxTime: 0
+  canonDelay: 4
+  maxTime: 1
 --- !u!4 &658984476
 Transform:
   m_ObjectHideFlags: 0
