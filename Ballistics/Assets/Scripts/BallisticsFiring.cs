@@ -29,7 +29,7 @@ public class BallisticsFiring : MonoBehaviour
 		if (firingVector != Vector3.zero) {
 			materialSet.material = defaultMaterial;
 
-			Quaternion firingRot = vector2q(firingVector);
+			Quaternion firingRot =  Quaternion.LookRotation(firingVector);
 			firingRot.eulerAngles = new Vector3(firingRot.eulerAngles.x + 90, firingRot.eulerAngles.y, firingRot.eulerAngles.z);
 
 			Rigidbody instance = Instantiate(projectile, transform.position, firingRot).GetComponent<Rigidbody>();
@@ -38,11 +38,6 @@ public class BallisticsFiring : MonoBehaviour
 		else materialSet.material = firingFailMaterial;
 	}
 
-
-	private Quaternion vector2q(Vector3 heading)
-	{
-		return Quaternion.LookRotation(heading);
-	}
 	
 	private Vector3 calculateFiringSolution(Vector3 end)
 	{
@@ -70,7 +65,7 @@ public class BallisticsFiring : MonoBehaviour
 		float time1 = Mathf.Sqrt((-b - Mathf.Sqrt(b2minus4ac)) / (2 * a));
 
 		// Find the time to target.
-		float ttt = 0;
+		float ttt;
 		if (time0 < 0) {
 			if (time1 < 0) {
 				// We have no valid times.
